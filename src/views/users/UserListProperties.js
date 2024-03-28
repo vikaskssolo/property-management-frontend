@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { getServices } from "../../apiServices/apiServices";
 import { Link, useLocation } from "react-router-dom";
 import { IoIosArrowDropright } from "react-icons/io";
-import { Input } from "@material-tailwind/react";
+import { Avatar, Input } from "@material-tailwind/react";
 import { IoSearch } from "react-icons/io5";
 
 function UserListProperties() {
@@ -69,9 +69,7 @@ function UserListProperties() {
                   className="bg-blue-gray-50 p-3 rounded-md hover:drop-shadow-xl transition-all duration-300 flex justify-between flex-col gap-2"
                 >
                   <div className="flex items-center justify-between w-full">
-                    <p className="font-semibold text-xl">
-                      {property.property_name}
-                    </p>
+                    <Avatar src={property.images[0]} alt="" />
                     <p className="text-red-500 bg-red-100 px-2 rounded">
                       {property.prop_status === 1
                         ? "Ready To Buy"
@@ -84,6 +82,9 @@ function UserListProperties() {
                         : ""}
                     </p>
                   </div>
+                  <p className="font-semibold text-xl">
+                    {property.property_name}
+                  </p>
                   {property.age && <p>Age: {property.age}</p>}
                   {property.city && <p>City: {property.city}</p>}
                   {property.locality && <p>Locality: {property.locality}</p>}

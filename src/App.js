@@ -121,6 +121,7 @@ function App() {
             }
           />
 
+          {/* vendor route */}
           <Route
             path="/vendor/dashboard"
             element={
