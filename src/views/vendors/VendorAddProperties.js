@@ -346,12 +346,12 @@ function VendorAddProperties() {
                   ))}
                 </Select>
 
-                {subCategoryData.subCategories?.length > 0 && (
+                {subCategoryData?.subCategories?.length > 0 && (
                   <Select
                     label="Select a sub-category"
                     onChange={(e) => setAddData({ ...addData, subcategory: e })}
                   >
-                    {subCategoryData.subCategories?.map((sub_category, i) => (
+                    {subCategoryData?.subCategories?.map((sub_category, i) => (
                       <Option key={i} value={sub_category._id}>
                         {sub_category.name}
                       </Option>
