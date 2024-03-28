@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { IoIosArrowDropright } from "react-icons/io";
 import toast from "react-hot-toast";
 import { getServices } from "../../apiServices/apiServices";
+import { Avatar } from "@material-tailwind/react";
 
 function UserBookings() {
   const [data, setData] = useState([]);
@@ -37,9 +38,10 @@ function UserBookings() {
             <div className="flex flex-col gap-3">
               {data.map((property, i) => (
                 <div className="bg-gray-100 p-3 rounded-lg" key={i}>
-                  <div className="flex justify-end mb-2">
+                  <div className="flex justify-between mb-2">
+                    <Avatar src={property.propertyInfo.images[0]} alt="" />
                     <p
-                      className={`bg-red-300 text-white px-3 py-1 rounded-full ${
+                      className={`bg-red-300 text-white px-3 py-1 rounded-full h-fit ${
                         property.isaccepted === 0
                           ? "bg-red-300"
                           : "bg-green-300"
@@ -54,20 +56,6 @@ function UserBookings() {
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex gap-2 items-center">
-                      {/* <img src={property.propertyInfo.images[0]} /> */}
-                      {/* {property.propertyInfo.images[0] && (
-                        <video width="320" height="240" controls>
-                          <source
-                            src={property.propertyInfo.images[0]}
-                            type="video/mp4"
-                          />
-                          <source
-                            src={property.propertyInfo.images[0]}
-                            type="video/ogg"
-                          />
-                        </video>
-                      )} */}
-
                       <p className="font-semibold text-xl">
                         {property.propertyInfo.property_name}
                       </p>

@@ -5,6 +5,7 @@ import { IoIosArrowDropright } from "react-icons/io";
 import { MdOutlineDelete } from "react-icons/md";
 import toast from "react-hot-toast";
 import { deleteServices, getServices } from "../../apiServices/apiServices";
+import { Avatar } from "@material-tailwind/react";
 
 function UserWishlist() {
   const [data, setData] = useState([]);
@@ -51,41 +52,32 @@ function UserWishlist() {
             <div className="flex flex-col gap-3">
               {data.map((property, i) => (
                 <div className="bg-gray-100 p-3 rounded-lg" key={i}>
-                  <div className="flex items-center justify-between">
-                    <div className="flex gap-2 items-center">
-                      {/* <img src={property.propertyInfo.images[0]} /> */}
-                      {/* {property.propertyInfo.images[0] && (
-                        <video width="320" height="240" controls>
-                          <source
-                            src={property.propertyInfo.images[0]}
-                            type="video/mp4"
-                          />
-                          <source
-                            src={property.propertyInfo.images[0]}
-                            type="video/ogg"
-                          />
-                        </video>
-                      )} */}
-
-                      <p className="font-semibold text-xl">
-                        {property.propertyInfo.property_name}
-                      </p>
+                  <div className="flex items-start justify-between">
+                    <div className="flex gap-3 items-center">
+                      <Avatar src={property.propertyInfo.images[0]} alt="" />
+                      <div>
+                        <p className="font-semibold text-xl">
+                          {property.propertyInfo.property_name}
+                        </p>
+                        {property.propertyInfo && (
+                          <p>
+                            City: <span>{property.propertyInfo.city}</span>
+                          </p>
+                        )}
+                        {property.propertyInfo && (
+                          <p>
+                            Locality:{" "}
+                            <span>{property.propertyInfo.locality}</span>
+                          </p>
+                        )}
+                      </div>
                     </div>
                     <MdOutlineDelete
                       onClick={() => handleRemoveWishlist(property._id)}
                       className="text-3xl bg-gray-800 text-white p-1 rounded-full cursor-pointer"
                     />
                   </div>
-                  {property.propertyInfo && (
-                    <p>
-                      City: <span>{property.propertyInfo.city}</span>
-                    </p>
-                  )}
-                  {property.propertyInfo && (
-                    <p>
-                      Locality: <span>{property.propertyInfo.locality}</span>
-                    </p>
-                  )}
+
                   <div className="flex justify-end items-center hover:underline">
                     <Link
                       to={"/user/property/details"}

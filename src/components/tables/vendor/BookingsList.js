@@ -1,8 +1,15 @@
-import { Button, Card, CardBody, Typography } from "@material-tailwind/react";
+import {
+  Avatar,
+  Button,
+  Card,
+  CardBody,
+  Typography,
+} from "@material-tailwind/react";
 import React from "react";
 import { Link } from "react-router-dom";
 
 function BookingsList(props) {
+  console.log(props.TABLE_ROWS);
   return (
     <>
       <Card>
@@ -37,6 +44,7 @@ function BookingsList(props) {
                   <tr key={index}>
                     <td className={classes}>
                       <div className="flex items-center gap-3">
+                        <Avatar src={vendor.propertyInfo.images[0]} />
                         <div className="flex flex-col">
                           <Typography
                             variant="small"

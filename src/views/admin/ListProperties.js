@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import { getServices } from "../../apiServices/apiServices";
 import { IoIosArrowDropright } from "react-icons/io";
+import { Avatar } from "@material-tailwind/react";
 
 function ListProperties() {
   const [data, setData] = useState([]);
@@ -48,13 +49,7 @@ function ListProperties() {
                   className="bg-blue-gray-50 p-3 rounded-md hover:drop-shadow-xl transition-all duration-300 flex justify-between flex-col gap-2"
                 >
                   <div className="flex items-center justify-between w-full">
-                    <Link
-                      to={"/admin/vendor/property/details"}
-                      className="font-semibold text-xl"
-                      state={{ property_id: property._id }}
-                    >
-                      {property.property_name}
-                    </Link>
+                    <Avatar src={property.images[0]} alt="" />
                     <p className="text-red-500 bg-red-100 px-2 rounded">
                       {property.prop_status === 1
                         ? "Ready To Buy"
@@ -67,7 +62,14 @@ function ListProperties() {
                         : ""}
                     </p>
                   </div>
-                  {property.age && <p>Age: {property.age}</p>}
+                  <Link
+                    to={"/admin/vendor/property/details"}
+                    className="font-semibold text-xl"
+                    state={{ property_id: property._id }}
+                  >
+                    {property.property_name}
+                  </Link>
+                  {/* {property.age && <p>Age: {property.age}</p>} */}
                   {property.city && <p>City: {property.city}</p>}
                   {property.locality && <p>Locality: {property.locality}</p>}
                   <div className="flex justify-end items-center hover:underline">
