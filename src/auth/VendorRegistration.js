@@ -77,11 +77,12 @@ function VendorRegistration() {
         });
         if (res.responseCode === 200) {
           if (res.responseData.role === 2) {
-            localStorage.setItem(
-              "property_vendor_access_token",
-              res.responseData.access_token
-            );
-            navigate("/vendor/dashboard");
+            // localStorage.setItem(
+            //   "property_vendor_access_token",
+            //   res.responseData.access_token
+            // );
+            // navigate("/");
+            toast.success("Registration successful. please wait until your request has been approved")
           }
         } else {
           toast.error(res.responseMessage);
