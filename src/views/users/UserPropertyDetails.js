@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import UserNavbar from "../../components/UserNavbar";
 import toast from "react-hot-toast";
 import { getServices, postServices } from "../../apiServices/apiServices";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Carousel } from "@material-tailwind/react";
 
 function UserPropertyDetails() {
   const [data, setData] = useState({});
   const location = useLocation().state;
   const access_token = localStorage.getItem("property_user_access_token");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchPropertyDetails();
@@ -181,9 +182,7 @@ function UserPropertyDetails() {
             <div className="flex items-center justify-end mt-3 gap-3">
               <Button
                 onClick={() =>
-                  access_token
-                    ? handleAddToWishlist()
-                    : alert("Please login to continue.")
+                  access_token ? handleAddToWishlist() : navigate("/login")
                 }
               >
                 Add to Wishlist
@@ -191,9 +190,7 @@ function UserPropertyDetails() {
               {data.prop_status === 1 && (
                 <Button
                   onClick={() =>
-                    access_token
-                      ? handleBooking()
-                      : alert("Please login to continue.")
+                    access_token ? handleBooking() : navigate("/login")
                   }
                 >
                   Book Now
