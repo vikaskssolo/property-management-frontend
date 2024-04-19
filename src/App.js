@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Login from "./auth/Login";
 import AuthLayout from "./layouts/AuthLayout";
@@ -7,13 +7,13 @@ import VendorLayout from "./layouts/VendorLayout";
 import UserLayout from "./layouts/UserLayout";
 import VendorRegistration from "./auth/VendorRegistration";
 import UserRegistration from "./auth/UserRegistration";
-import LandingPage from "./layouts/LandingPage";
+// import LandingPage from "./layouts/LandingPage";
 import AdminDashboard from "./views/admin/AdminDashboard";
 import ManageVendor from "./views/admin/ManageVendor";
 import VendorsList from "./views/admin/VendorsList";
 import ManageCategories from "./views/admin/ManageCategories";
 import ManageSubCategory from "./views/admin/ManageSubCategory";
-import VendorDashboard from "./views/vendors/VendorDashboard";
+// import VendorDashboard from "./views/vendors/VendorDashboard";
 import UserDashboard from "./views/users/UserDashboard";
 import { Toaster } from "react-hot-toast";
 import ListProperties from "./views/admin/ListProperties";
@@ -61,7 +61,8 @@ function App() {
           />
 
           {/* landing page */}
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<Navigate to={"/user/dashboard"} />} />
+          {/* <Route path="/" element={<LandingPage />} /> */}
 
           {/* Admin route */}
           <Route

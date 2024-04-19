@@ -179,11 +179,25 @@ function UserPropertyDetails() {
           )}
           {data && (
             <div className="flex items-center justify-end mt-3 gap-3">
-              <Button onClick={() => handleAddToWishlist()}>
+              <Button
+                onClick={() =>
+                  access_token
+                    ? handleAddToWishlist()
+                    : alert("Please login to continue.")
+                }
+              >
                 Add to Wishlist
               </Button>
               {data.prop_status === 1 && (
-                <Button onClick={() => handleBooking()}>Book Now</Button>
+                <Button
+                  onClick={() =>
+                    access_token
+                      ? handleBooking()
+                      : alert("Please login to continue.")
+                  }
+                >
+                  Book Now
+                </Button>
               )}
             </div>
           )}
