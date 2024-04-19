@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 function UserNavbar(props) {
   const [openNav, setOpenNav] = useState(false);
   const navigate = useNavigate();
+  const access_token = localStorage.getItem("property_user_access_token");
 
   React.useEffect(() => {
     window.addEventListener(
@@ -63,18 +64,32 @@ function UserNavbar(props) {
           My Bookings
         </Link>
       </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="py-1 cursor-pointer bg-blue-gray-900 text-white px-3 rounded-md font-semibold w-fit"
-        onClick={() => {
-          localStorage.removeItem("property_user_access_token");
-          navigate("/");
-        }}
-      >
-        Logout
-      </Typography>
+      {access_token ? (
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="py-1 cursor-pointer bg-blue-gray-900 text-white px-3 rounded-md font-semibold w-fit"
+          onClick={() => {
+            localStorage.removeItem("property_user_access_token");
+            navigate("/user/dashboard");
+          }}
+        >
+          Logout
+        </Typography>
+      ) : (
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="py-1 cursor-pointer bg-blue-gray-900 text-white px-3 rounded-md font-semibold w-fit"
+          onClick={() => {
+            navigate("/login");
+          }}
+        >
+          Login
+        </Typography>
+      )}
     </ul>
   );
 

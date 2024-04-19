@@ -12,7 +12,7 @@ import React, { useState } from "react";
 import { mailPattern, phoneNumber, strongPwd } from "../variables/constants";
 import toast from "react-hot-toast";
 import { postServices } from "../apiServices/apiServices";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const [data, setData] = useState({ username: "", password: "" });
@@ -118,18 +118,12 @@ function Login() {
             <Button type="submit" variant="gradient" fullWidth>
               Sign In
             </Button>
-            {/* <Typography variant="small" className="mt-6 flex justify-center">
+            <Typography variant="small" className="mt-6 flex justify-center">
               Don&apos;t have an account?
-              <Typography
-                as="a"
-                href="#signup"
-                variant="small"
-                color="blue-gray"
-                className="ml-1 font-bold"
-              >
+              <Link to={"/user_registration"} className="ml-1 font-bold text-blue-gray-800">
                 Sign up
-              </Typography>
-            </Typography> */}
+              </Link>
+            </Typography>
           </CardFooter>
         </form>
       </Card>

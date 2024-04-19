@@ -82,7 +82,9 @@ function VendorRegistration() {
             //   res.responseData.access_token
             // );
             // navigate("/");
-            toast.success("Registration successful. please wait until your request has been approved")
+            toast.success(
+              "Registration successful. please wait until your request has been approved"
+            );
           }
         } else {
           toast.error(res.responseMessage);
@@ -157,6 +159,15 @@ function VendorRegistration() {
               Already have an account?
               <Link to={"/login"} className="ml-1 font-bold text-blue-gray-700">
                 Sign in
+              </Link>
+            </Typography>
+            <Typography variant="small" className="mt-6 flex justify-center">
+              Register as User
+              <Link
+                to={"/user_registration"}
+                className="ml-1 font-bold text-blue-gray-800"
+              >
+                Sign up
               </Link>
             </Typography>
           </CardFooter>

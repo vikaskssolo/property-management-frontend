@@ -158,6 +158,15 @@ function UserRegistration() {
                 Sign in
               </Link>
             </Typography>
+            <Typography variant="small" className="mt-6 flex justify-center">
+              Register as Vendor
+              <Link
+                to={"/vendor_registration"}
+                className="ml-1 font-bold text-blue-gray-800"
+              >
+                Sign up
+              </Link>
+            </Typography>
           </CardFooter>
         </form>
       </Card>
