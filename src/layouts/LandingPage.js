@@ -30,7 +30,7 @@ function LandingPage() {
           <p className="md:text-3xl lg:text-5xl xl:text-7xl font-bold text-center md:text-right text-[#1C274C] capitalize">
             Welcome to Property management system! Your journey begins here
           </p>
-          <Link to={"/user_registration"}>
+          <Link to={"/user/dashboard"}>
             <Button>Know more</Button>
           </Link>
         </div>

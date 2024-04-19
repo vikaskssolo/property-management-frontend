@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./auth/Login";
 import AuthLayout from "./layouts/AuthLayout";
@@ -28,6 +28,7 @@ import VendorPropertyDetails from "./views/vendors/VendorPropertyDetails";
 import VendorProperties from "./views/vendors/VendorProperties";
 import VendorAddProperties from "./views/vendors/VendorAddProperties";
 import AdminPropertyDetails from "./views/admin/AdminPropertyDetails";
+import LandingPage from "./layouts/LandingPage";
 
 function App() {
   return (
@@ -61,8 +62,8 @@ function App() {
           />
 
           {/* landing page */}
-          <Route path="/" element={<Navigate to={"/user/dashboard"} />} />
-          {/* <Route path="/" element={<LandingPage />} /> */}
+          {/* <Route path="/" element={<Navigate to={"/user/dashboard"} />} /> */}
+          <Route path="/" element={<LandingPage />} />
 
           {/* Admin route */}
           <Route
