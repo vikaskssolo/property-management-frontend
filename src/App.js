@@ -5,6 +5,7 @@ import AuthLayout from "./layouts/AuthLayout";
 import AdminLayout from "./layouts/AdminLayout";
 import VendorLayout from "./layouts/VendorLayout";
 import UserLayout from "./layouts/UserLayout";
+// THIS IS COMMENT 
 import VendorRegistration from "./auth/VendorRegistration";
 import UserRegistration from "./auth/UserRegistration";
 // import LandingPage from "./layouts/LandingPage";
